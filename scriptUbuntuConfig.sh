@@ -49,11 +49,13 @@ microk8s status --wait-ready
 
 microk8s enable dashboard dns registry istio
 
-apt-get install -y apt-transport-https ca-certificates curl
-curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernet>
-apt-get update
-apt-get install -y kubectl
+#apt-get install -y apt-transport-https ca-certificates curl
+#curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+#echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernet>
+#apt-get update
+#apt-get install -y kubectl
+
+snap install kubectl --classic
 
 
 apt install gnome-tweaks -y
