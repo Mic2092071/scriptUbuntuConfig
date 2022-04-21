@@ -132,12 +132,14 @@ EOF
 #sed -i 's|'"$USER"':x:1000:1000:'"$USER"',,,:/home/'"$USER"':/bin/bash|'"$USER"':x:1000:1000:'"$USER"',,,:/home/'"$USER"':/usr/bin/zsh|' /etc/passwd
 #sudo -u $USER bash -c 'chsh -s $(which zsh)'
 
-chown -R $USER:$USER $USER_HOME/powerlevel10k/
-chown -R $USER:$USER $USER_HOME/.zshrc
+#chown -R $USER:$USER $USER_HOME/powerlevel10k/
+#chown -R $USER:$USER $USER_HOME/.zshrc
 
-cecho g "Pour terminer l'installation, executer la commande suivante: "
+cecho g "Pour terminer l'installation, executer les commandes suivantes: "
 cecho r "chsh -s $(which zsh)"
-cecho g "Ensuite fermer le terminal et le reouvrir ou ouvrir terminator pour completer l'installation."
+cecho r "sudo chown -R $USER:$USER powerlevel10k/"
+cecho r "chown -R $USER:$USER .zshrc"
+cecho b  "Ensuite fermer le terminal et le reouvrir ou ouvrir terminator pour completer l'installation."
 
 
 
