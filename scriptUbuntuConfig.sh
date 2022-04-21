@@ -81,7 +81,7 @@ apt install zsh -y
 sleep 5
 #sudo -u $USER zsh
 
-sudo -u $USER sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#sudo -u $USER sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 sudo -u $USER wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -P $USER_HOME/Downloads/
 
@@ -95,10 +95,10 @@ sleep 5
 
 cp $USER_HOME/Downloads/*.ttf /usr/share/fonts/truetype/ && fc-cache -f -v
 
-sudo -u $USER git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $USER_HOME/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> $USER_HOME/.zshrc
+#sudo -u $USER git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $USER_HOME/powerlevel10k
+#echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> $USER_HOME/.zshrc
 
-sleep 5
+#sleep 5
 
 mkdir -p $USER_HOME/.config/terminator
 touch $USER_HOME/.config/terminator/config
@@ -141,10 +141,14 @@ source <(kubectl completion zsh)  # setup autocomplete in zsh into the current s
 echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc # add autocomplete permanently to your zsh shell
 
 
-cecho g "Pour terminer l'installation, executer les commandes suivantes: "
-cecho r "chsh -s $(which zsh)"
-cecho r "sudo chown -R $USER:$USER powerlevel10k/"
-cecho r "chown -R $USER:$USER .zshrc"
+cecho y "Pour terminer l'installation, executer les commandes suivantes: "
+cecho r "chsh -s \$(which zsh)"
+#cecho r "sudo chown -R \$USER:\$USER powerlevel10k/"
+#cecho r "sudo chown -R \$USER:\$USER .zshrc"
+cecho r "sudo apt install gnome-shell-extensions -y"
+cecho r "sh -c "\$\(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh\)""
+cecho r "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k"
+cecho r "echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc"
 cecho b  "Ensuite fermer le terminal et le reouvrir ou ouvrir terminator pour completer l'installation."
 
 
