@@ -137,6 +137,10 @@ EOF
 #chown -R $USER:$USER $USER_HOME/powerlevel10k/
 #chown -R $USER:$USER $USER_HOME/.zshrc
 
+source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
+echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc # add autocomplete permanently to your zsh shell
+
+
 cecho g "Pour terminer l'installation, executer les commandes suivantes: "
 cecho r "chsh -s $(which zsh)"
 cecho r "sudo chown -R $USER:$USER powerlevel10k/"
