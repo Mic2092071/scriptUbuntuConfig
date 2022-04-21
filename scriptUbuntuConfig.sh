@@ -59,7 +59,7 @@ snap install kubectl --classic
 
 
 apt install gnome-tweaks -y
-apt install gnome-shell-extensions -y
+#apt install gnome-shell-extensions -y
 
 #mkdir -p $USER_HOME/.themes
 
@@ -146,7 +146,7 @@ cecho r "chsh -s \$(which zsh)"
 #cecho r "sudo chown -R \$USER:\$USER powerlevel10k/"
 #cecho r "sudo chown -R \$USER:\$USER .zshrc"
 cecho r "sudo apt install gnome-shell-extensions -y"
-cecho r "sh -c "\$\(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh\)""
+cecho r "sh -c "\$\(curl \-fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh\)""
 cecho r "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k"
 cecho r "echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc"
 cecho b  "Ensuite fermer le terminal et le reouvrir ou ouvrir terminator pour completer l'installation."
