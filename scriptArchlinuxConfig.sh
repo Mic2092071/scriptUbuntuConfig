@@ -20,12 +20,12 @@ cecho() {
 
 pacman -Syu
 
-pacman -S terminator -y
+pacman -Sy terminator
 #apt install neofetch -y
 #apt install htop -y
-pacman -S code -y
+pacman -Sy code
 
-pacman -S curl -y
+pacman -Sy curl
 #systemctl enable ssh
 
 git config --global user.name "Mic2092071"
@@ -42,6 +42,11 @@ curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compo
 
 chmod +x /usr/local/bin/docker-compose
 
+git clone https://aur.archlinux.org/snapd.git
+
+cd snapd
+
+makepkg -si && cd
 
 snap install microk8s --classic
 
@@ -61,7 +66,9 @@ snap install kubectl --classic
 #apt install gnome-tweaks -y
 #apt install gnome-shell-extensions -y
 
-#mkdir -p $USER_HOME/.themes
+pacman -Sy unzip
+
+mkdir -p $USER_HOME/.themes
 
 wget "https://github.com/i-mint/midnight/archive/refs/heads/master.zip"
 
@@ -79,7 +86,7 @@ mkdir -p $USER_HOME/Dev
 
 #update-grub
 
-pacman -S zsh -y
+pacman -Sy zsh
 sleep 5
 #sudo -u $USER zsh
 
@@ -143,6 +150,7 @@ source <(kubectl completion zsh)  # setup autocomplete in zsh into the current s
 echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc # add autocomplete permanently to your zsh shell
 
 
+
 cecho y "Pour terminer l'installation, executer les commandes suivantes: "
 cecho r "chsh -s \$(which zsh)"
 #cecho r "sudo chown -R \$USER:\$USER powerlevel10k/"
@@ -152,6 +160,4 @@ cecho r "sh -c "\$\(curl \-fsSL https://raw.githubusercontent.com/robbyrussell/o
 cecho r "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k"
 cecho r "echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc"
 cecho b  "Ensuite fermer le terminal et le reouvrir ou ouvrir terminator pour completer l'installation."
-
-
 
