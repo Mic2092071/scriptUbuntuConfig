@@ -46,9 +46,9 @@ git clone https://aur.archlinux.org/snapd.git
 
 cd snapd
 
-makepkg -si && cd
+sudo -u $USER makepkg -si && cd
 
-snap install microk8s --classic
+sudo -u $USER snap install microk8s --classic
 
 microk8s status --wait-ready
 
@@ -60,7 +60,7 @@ microk8s enable dashboard dns registry istio
 #apt-get update
 #apt-get install -y kubectl
 
-snap install kubectl --classic
+sudo -u $USER snap install kubectl --classic
 
 
 #apt install gnome-tweaks -y
@@ -68,7 +68,7 @@ snap install kubectl --classic
 
 pacman -Sy unzip
 
-mkdir -p $USER_HOME/.themes
+sudo -u $USER mkdir -p $USER_HOME/.themes
 
 wget "https://github.com/i-mint/midnight/archive/refs/heads/master.zip"
 
@@ -80,7 +80,7 @@ mv $USER_HOME/midnight-master $USER_HOME/.themes
 #/GRUB_CMDLINE_LINUX_DEFAULT=""
 #/' /etc/default/grub
 
-mkdir -p $USER_HOME/Dev
+sudo -u $USER mkdir -p $USER_HOME/Dev
 
 #git clone https://github.com/mic2092071/Dev
 
@@ -149,6 +149,25 @@ EOF
 source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
 echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc # add autocomplete permanently to your zsh shell
 
+
+touch $USER_HOME/.Xresources
+
+cat > $USER_HOME/.Xresources <<EOF
+i3-wm.client.focused.color.child_border: #0503B0
+!i3-wm.client.focused.color.border: #0503B0
+i3-wm.client.unfocused.color.border: #A6C4DE
+i3-wm.client.unfocused.color.child_border: #A6C4DE
+i3-wm.client.focused_inactive.color.border: #A6C4DE
+i3-wm.client.unfocused_inactive.color.child_border: #A6C4DE
+
+!i3-wm.client.focused.color.indicator: #A6C4DE
+
+!i3-wm.client.urgent.color.border: #A6C4DE
+!i3-wm.client.urgent.color.child_border: #A6C4DE
+
+i3-wm_gaps_inner_size: "40"
+i3-wm_gaps_outer_size: "40"
+EOF
 
 
 cecho y "Pour terminer l'installation, executer les commandes suivantes: "
